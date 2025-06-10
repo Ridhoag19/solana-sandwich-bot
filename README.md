@@ -37,7 +37,7 @@ When a large buy order is detected, the sandwich trader quickly buys the token f
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/solana-sandwich-bot.git
+git clone https://github.com/Uday147kumar/solana-sandwich-bot.git
 cd solana-sandwich-bot
 ```
 
